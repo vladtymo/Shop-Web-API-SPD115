@@ -1,4 +1,5 @@
-﻿using DataAccess.Data.Entities;
+﻿using BusinessLogic.ApiModels;
+using DataAccess.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,8 @@ namespace BusinessLogic.Interfaces
     {
         List<Product> Get();
         Product? Get(int id);
-        void Create(Product product);
-        void Edit(Product product);
+        void Create(CreateProductModel product);
+        void Edit(EditProductModel product);
         void Delete(int id);
     }
 }
