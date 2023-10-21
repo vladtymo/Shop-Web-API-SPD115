@@ -4,10 +4,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Data
 {
-    public class ShopVPDDbContext : DbContext
+    public class Shop115DbContext : DbContext
     {
-        public ShopVPDDbContext() { }
-        public ShopVPDDbContext(DbContextOptions options) : base(options) { }
+        public Shop115DbContext() { }
+        public Shop115DbContext(DbContextOptions options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

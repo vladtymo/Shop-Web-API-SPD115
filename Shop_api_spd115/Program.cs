@@ -1,3 +1,5 @@
+using BusinessLogic.Interfaces;
+using BusinessLogic.Services;
 using DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +11,8 @@ string connStr = builder.Configuration.GetConnectionString("LocalDb")!;
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<Shop115DbContext>(opts => opts.UseSqlServer(connStr));
+
+builder.Services.AddScoped<IProductsService, ProductsService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

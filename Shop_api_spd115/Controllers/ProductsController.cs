@@ -1,4 +1,5 @@
-﻿using DataAccess.Data;
+﻿using BusinessLogic.Interfaces;
+using DataAccess.Data;
 using DataAccess.Data.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,29 +10,25 @@ namespace Shop_api_spd115.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly Shop115DbContext ctx;
+        private readonly IProductsService service;
 
-        public ProductsController(Shop115DbContext ctx)
+        public ProductsController(IProductsService service)
         {
-            this.ctx = ctx;
+            this.service = service;
         }
 
-        //[HttpGet]                   // GET ~/api/products
-        [HttpGet("all")]            // GET ~/api/products/all
-        //[HttpGet("/all-products")]  // GET ~/all-products
+        //[HttpGet]                     // GET ~/api/products
+        [HttpGet("all")]                // GET ~/api/products/all
+        //[HttpGet("/all-products")]    // GET ~/all-products
         public IActionResult Get()
         {
-            return Ok(ctx.Products.ToList()); // status: 200
+            return Ok(service.Get()); // status: 200
         }
 
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            var item = ctx.Products.Find(id);
-
-            if (item == null) return NotFound(); // 404
-
-            return Ok(item);
+            return Ok(service.Get(id));
         }
 
         [HttpPost]
@@ -39,9 +36,7 @@ namespace Shop_api_spd115.Controllers
         {
             if (!ModelState.IsValid) return BadRequest();
 
-            ctx.Products.Add(model);
-            ctx.SaveChanges();
-
+            service.Create(model);
             return Ok();
         }
 
@@ -50,22 +45,14 @@ namespace Shop_api_spd115.Controllers
         {
             if (!ModelState.IsValid) return BadRequest();
 
-            ctx.Products.Update(model);
-            ctx.SaveChanges();
-
+            service.Edit(model);
             return Ok();
         }
 
         [HttpDelete]
         public IActionResult Delete(int id)
         {
-            var item = ctx.Products.Find(id);
-
-            if (item == null) return NotFound();
-
-            ctx.Products.Remove(item);
-            ctx.SaveChanges();
-
+            service.Delete(id);
             return Ok();
         }
     }
