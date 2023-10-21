@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BusinessLogic.ApiModels;
+using BusinessLogic.Dtos;
 using DataAccess.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace BusinessLogic.Helpers
         {
             CreateMap<CreateProductModel, Product>();
             CreateMap<EditProductModel, Product>();
+
+            CreateMap<Product, ProductDto>().ReverseMap();
         }
     }
 }

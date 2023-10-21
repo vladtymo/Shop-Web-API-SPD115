@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.ApiModels;
+using BusinessLogic.Dtos;
 using DataAccess.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,8 @@ namespace BusinessLogic.Interfaces
 {
     public interface IProductsService
     {
-        List<Product> Get();
-        Product? Get(int id);
+        List<ProductDto> Get();
+        ProductDto? Get(int id);
         void Create(CreateProductModel product);
         void Edit(EditProductModel product);
         void Delete(int id);
