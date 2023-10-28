@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BusinessLogic.ApiModels;
 using BusinessLogic.Dtos;
+using BusinessLogic.Exceptions;
 using BusinessLogic.Interfaces;
 using DataAccess.Data;
 using DataAccess.Data.Entities;
@@ -8,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,7 +46,7 @@ namespace BusinessLogic.Services
         {
             var item = ctx.Products.Find(id);
 
-            if (item == null) return;
+            if (item == null) throw new HttpException("Product with Id not found!", HttpStatusCode.NotFound);
 
             ctx.Products.Remove(item);
             ctx.SaveChanges();
@@ -78,7 +80,7 @@ namespace BusinessLogic.Services
         {
             var item = ctx.Products.Find(id);
 
-            if (item == null) return null;
+            if (item == null) throw new HttpException("Product with Id not found!", HttpStatusCode.NotFound);
 
             return mapper.Map<ProductDto>(item);
         }
