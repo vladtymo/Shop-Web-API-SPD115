@@ -1,7 +1,10 @@
 using BusinessLogic.Interfaces;
 using BusinessLogic.Services;
 using DataAccess.Data;
+using DataAccess.Data.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Shop_api_spd115.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +16,11 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<Shop115DbContext>(opts => opts.UseSqlServer(connStr));
 
+builder.Services.AddIdentity<User, IdentityRole>()
+    .AddEntityFrameworkStores<Shop115DbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.AddScoped<IAccountsService, AccountsService>();
 builder.Services.AddScoped<IProductsService, ProductsService>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
