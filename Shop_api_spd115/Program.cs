@@ -1,11 +1,10 @@
+using BusinessLogic.Entities;
 using BusinessLogic.Interfaces;
 using BusinessLogic.Services;
 using DataAccess.Data;
-using DataAccess.Data.Entities;
 using DataAccess.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Shop_api_spd115.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);

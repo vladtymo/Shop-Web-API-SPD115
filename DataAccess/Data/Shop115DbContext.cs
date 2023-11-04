@@ -1,4 +1,4 @@
-﻿using DataAccess.Data.Entities;
+﻿using BusinessLogic.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

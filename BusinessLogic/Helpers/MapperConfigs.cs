@@ -1,12 +1,7 @@
 ﻿using AutoMapper;
 using BusinessLogic.ApiModels;
 using BusinessLogic.Dtos;
-using DataAccess.Data.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BusinessLogic.Entities;
 
 namespace BusinessLogic.Helpers
 {

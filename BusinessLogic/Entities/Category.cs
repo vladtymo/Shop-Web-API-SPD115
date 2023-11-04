@@ -1,4 +1,4 @@
-﻿namespace DataAccess.Data.Entities
+﻿namespace BusinessLogic.Entities
 {
     public class Category
     {

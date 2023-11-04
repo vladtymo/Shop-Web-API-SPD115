@@ -5,9 +5,9 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop_api_spd115", "Shop_api_spd115\Shop_api_spd115.csproj", "{6DD34C68-1B55-4882-99D5-278CCC3F6DD4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{38178E8D-9268-4A9C-B6C4-DCB55901FF67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "DataAccess\Infrastructure.csproj", "{38178E8D-9268-4A9C-B6C4-DCB55901FF67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{6FFB1FB3-EFA1-42E1-B1F2-D6F185DBE829}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "BusinessLogic\Core.csproj", "{6FFB1FB3-EFA1-42E1-B1F2-D6F185DBE829}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

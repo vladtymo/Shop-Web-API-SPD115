@@ -1,6 +1,5 @@
 ﻿using BusinessLogic.ApiModels.Account;
 using BusinessLogic.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Shop_api_spd115.Controllers
