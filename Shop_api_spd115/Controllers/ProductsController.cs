@@ -1,5 +1,6 @@
 ﻿using BusinessLogic.ApiModels;
 using BusinessLogic.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +17,7 @@ namespace Shop_api_spd115.Controllers
             this.service = service;
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         //[HttpGet]                     // GET ~/api/products
         [HttpGet("all")]                // GET ~/api/products/all
         //[HttpGet("/all-products")]    // GET ~/all-products

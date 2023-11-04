@@ -25,8 +25,8 @@ namespace Shop_api_spd115.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginRequest model)
         {
-            await accountsService.LoginAsync(model);
-            return Ok();
+            var response = await accountsService.LoginAsync(model);
+            return Ok(response);
         }
 
         [HttpPost("logout")]
