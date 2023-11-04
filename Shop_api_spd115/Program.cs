@@ -2,6 +2,7 @@ using BusinessLogic.Interfaces;
 using BusinessLogic.Services;
 using DataAccess.Data;
 using DataAccess.Data.Entities;
+using DataAccess.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +20,8 @@ builder.Services.AddDbContext<Shop115DbContext>(opts => opts.UseSqlServer(connSt
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<Shop115DbContext>()
     .AddDefaultTokenProviders();
+
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 builder.Services.AddScoped<IAccountsService, AccountsService>();
 builder.Services.AddScoped<IProductsService, ProductsService>();
